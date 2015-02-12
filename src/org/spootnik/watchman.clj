@@ -55,7 +55,7 @@
   "Watch a location or seq of locations and call notify! with two
    args (path and types) when events occur. Accepts an optional map
    of options: exception! is a callback and event-types a list of keywords"
-  ([locations notify! {:keys [event-types exception!]
+  ([locations notify! {:keys [event-types]
                        :or {event-types [:create :modify :delete]}}]
      (let [fs    (FileSystems/getDefault)
            srv   (.newWatchService fs)
@@ -67,13 +67,13 @@
              (when (seq keys)
                (let [k (.take srv)]
                  (doseq [[path types] (group-events (.pollEvents k))]
-                   (notify! path types))
+                   (notify! {:type :path :path path :types types :srv srv}))
                  (recur (if (.reset k) keys (remove (partial = k) keys))))))
            (catch Exception e
-             (when exception!
-               (exception! srv e)))
+             (notify! {:type :exception :srv srv :exception e}))
            (finally
-             (.close srv))))
+             (.close srv)
+             (notify! {:type :closing :srv srv}))))
        srv))
   ([locations notify!]
      (watch! locations notify! {})))

@@ -1,4 +1,4 @@
-(defproject org.spootnik/watchman "0.3.0"
+(defproject org.spootnik/watchman "0.3.1"
   :description "watch directory for changes"
   :url "https://github.com/pyr/watchman"
   :license {:name "MIT License"
