@@ -8,7 +8,7 @@ A Clojure library providing a simple facade for Java's [WatchService](http://doc
 Pull the depenency with leiningen (add this in your `project.clj`)
 
 ```clojure
-[org.spootnik/watchman "0.3.0"]
+[org.spootnik/watchman "0.3.1"]
 ```
 
 
