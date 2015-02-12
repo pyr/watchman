@@ -4,6 +4,8 @@
            java.nio.file.StandardWatchEventKinds
            java.nio.file.FileSystems))
 
+;; convenience functions
+
 (def evt->kw
   "Map WatchEventKinds to keywords"
   {StandardWatchEventKinds/ENTRY_CREATE :create
@@ -41,6 +43,8 @@
          (group-by first)
          (map (juxt key (comp (partial map second) val)))
          (reduce merge {}))))
+
+;; "Public" api
 
 (defn close
   "Close a watch service"

@@ -11,5 +11,7 @@
 
 (defn watch-async!
   "Async version of watch! which puts events on a channel"
-  [locs ch opts]
-  (watch! locs (fn [path types] (put! ch {:path path :types types})) opts))
+  ([locs ch opts]
+     (watch! locs (fn [path types] (put! ch {:path path :types types})) opts))
+  ([locs ch]
+     (watch-async! locs ch {})))
