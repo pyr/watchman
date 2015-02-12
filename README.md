@@ -5,6 +5,13 @@ A Clojure library providing a simple facade for Java's [WatchService](http://doc
 
 ## Usage
 
+Pull the depenency with leiningen (add this in your `project.clj`)
+
+```clojure
+[org.spootnik/watchman "0.3.0"]
+```
+
+
 ```clojure
 (org.spootnik.watchman/watch!
   "/some/dir"
