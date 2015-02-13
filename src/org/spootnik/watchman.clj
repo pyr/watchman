@@ -51,6 +51,16 @@
   [service]
   (.close service))
 
+(defn ->path
+  "Construct a path from "
+  ([base elems]
+     (let [fs (FileSystems/getDefault)]
+       (.getPath fs base (into-array String (if (sequential? elems)
+                                              elems
+                                              [elems])))))
+  ([base elems & more]
+     (->path base conj (list more) elems)))
+
 (defn watch!
   "Watch a location or seq of locations and call notify! with two
    args (path and types) when events occur. Accepts an optional map
