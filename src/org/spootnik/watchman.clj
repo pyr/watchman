@@ -54,10 +54,10 @@
 (defn ->path
   "Construct a path from "
   ([base elems]
-     (let [fs (FileSystems/getDefault)]
-       (.getPath fs base (into-array String (if (sequential? elems)
-                                              elems
-                                              [elems])))))
+     (.getPath
+      (FileSystems/getDefault)
+      base
+      (into-array String (map str (if (sequential? elems) elems [elems])))))
   ([base elems & more]
      (->path base conj (list more) elems)))
 
