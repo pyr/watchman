@@ -1,7 +1,7 @@
-(ns org.spootnik.watchman.async
+(ns watch.man.async
   "Async interface for watchman"
-  (:require [org.spootnik.watchman :refer [watch!]]
-            [clojure.core.async    :refer [put!]]))
+  (:require [watch.man          :refer [watch!]]
+            [clojure.core.async :refer [put!]]))
 
 (defn watch-async!
   "Async version of watch! which puts events on a channel"

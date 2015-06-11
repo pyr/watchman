@@ -1,4 +1,4 @@
-(ns org.spootnik.watchman
+(ns watch.man
   "Small facade for Java's WatchService to be notified of FS changes"
   (:import java.nio.file.WatchService
            java.nio.file.StandardWatchEventKinds

@@ -8,24 +8,24 @@ A Clojure library providing a simple facade for Java's [WatchService](http://doc
 Pull the depenency with leiningen (add this in your `project.clj`)
 
 ```clojure
-[org.spootnik/watchman "0.3.3"]
+[spootnik/watchman "0.3.4"]
 ```
 
 
 ```clojure
-(org.spootnik.watchman/watch!
+(watch.man/watch!
   "/some/dir"
   (fn [event] (println (pr-str event)))
 
 (let [ch (clojure.core.async/chan)]
-  (org.spootnik.watchman.async/watch-async! "/some/dir" ch))
+  (watch.man/watch-async! "/some/dir" ch))
 ```
 
 Both `watch!` and `watch-async!` accept an optional map argument with the following keys:
 
 - `event-types`: a collection of any keywords from `:create`, `:modify`, `:delete`
 
-Both `watch!` and `watch-async!` return the underlying `WatchService`, `org.spootnik.watchman/close` can
+Both `watch!` and `watch-async!` return the underlying `WatchService`, `watch.man/close` can
 be called on the service.
 
 Each argument to the callback when using `watch!` or each payload on the channel
