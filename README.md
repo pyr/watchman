@@ -1,4 +1,8 @@
-# watchman
+watchman: the hero your filesystem needs
+========================================
+
+[![Build Status](https://secure.travis-ci.org/pyr/watchman.png)](http://travis-ci.org/pyr/watchman)
+
 
 A Clojure library providing a simple facade for Java's [WatchService](http://docs.oracle.com/javase/8/docs/api/java/nio/file/WatchService.html).
 
