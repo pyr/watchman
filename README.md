@@ -12,7 +12,7 @@ A Clojure library providing a simple facade for Java's [WatchService](http://doc
 Pull the depenency with leiningen (add this in your `project.clj`)
 
 ```clojure
-[spootnik/watchman "0.3.4"]
+[spootnik/watchman "0.3.5"]
 ```
 
 
