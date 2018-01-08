@@ -1,8 +1,10 @@
 (ns watch.man
   "Small facade for Java's WatchService to be notified of FS changes"
   (:import java.nio.file.WatchService
+           java.nio.file.WatchEvent
            java.nio.file.StandardWatchEventKinds
-           java.nio.file.FileSystems))
+           java.nio.file.FileSystems
+           java.nio.file.FileSystem))
 
 ;; convenience functions
 
@@ -28,7 +30,7 @@
 
 (defn ->key
   "Create a watch key"
-  [fs srv types location]
+  [^FileSystem fs srv types ^String location]
   (-> (.getPath fs location (make-array String 0))
       (.register srv types)))
 
@@ -36,7 +38,7 @@
   "When receiving multiple events on a key, group them by path"
   [polled]
   (let [watch-events (seq polled)]
-    (->> (for [event watch-events
+    (->> (for [^WatchEvent event watch-events
                :let [kind  (evt->kw (.kind event))]
                :when (not= kind :overflow)]
            [(.context event) kind])
@@ -48,7 +50,7 @@
 
 (defn close
   "Close a watch service"
-  [service]
+  [^WatchService service]
   (.close service))
 
 (defn ->path
