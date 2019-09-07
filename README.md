@@ -19,7 +19,7 @@ Pull the depenency with leiningen (add this in your `project.clj`)
 ```clojure
 (watch.man/watch!
   "/some/dir"
-  (fn [event] (println (pr-str event)))
+  (fn [event] (println (pr-str event))))
 ```
 
 `watch!` accepts an optional map argument with the following keys:
