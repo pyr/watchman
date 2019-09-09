@@ -38,7 +38,13 @@ the following keys:
 - `srv`: The watch service
 - `exception`: The exception that was raised for `:exception` events.
 
+## Changelog
+
+### 0.3.8
+
+- Readme improvements by @blak3mill3r
+
 ## License
 
-Copyright © 2015-2019 Pierre-Yves Ritschard, MIT License
+Copyright © 2015-2019 Pierre-Yves Ritschard, ISC License
 
